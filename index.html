@@ -122,7 +122,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -173,7 +173,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/02/algorithm/" class="post-title-link" itemprop="url">algorithm</a>
+          <a href="/2021/11/02/algorithm/" class="post-title-link" itemprop="url">数据结构-后半</a>
         </h2>
 
         <div class="post-meta-container">
@@ -185,7 +185,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-02 21:14:20 / 修改时间：21:15:05" itemprop="dateCreated datePublished" datetime="2021-11-02T21:14:20+08:00">2021-11-02</time>
+      <time title="创建时间：2021-11-02 21:19:28 / 修改时间：21:22:36" itemprop="dateCreated datePublished" datetime="2021-11-02T21:19:28+08:00">2021-11-02</time>
     </span>
 
   
@@ -198,7 +198,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="竞赛组第一次任务"><a href="#竞赛组第一次任务" class="headerlink" title="竞赛组第一次任务"></a>竞赛组第一次任务</h1><h2 id="一、离散数学的学习"><a href="#一、离散数学的学习" class="headerlink" title="一、离散数学的学习"></a>一、离散数学的学习</h2><h3 id="1-使用矩阵的幂求出长度为n的通路的个数"><a href="#1-使用矩阵的幂求出长度为n的通路的个数" class="headerlink" title="1.使用矩阵的幂求出长度为n的通路的个数"></a>1.使用矩阵的幂求出长度为n的通路的个数</h3><p>​    <img src="algorithm.assets/image-20210920111740660.png" alt="image-20210920111740660" style="zoom:50%;" /></p>
+          <h2 id="一、离散数学的学习"><a href="#一、离散数学的学习" class="headerlink" title="一、离散数学的学习"></a>一、离散数学的学习</h2><h3 id="1-使用矩阵的幂求出长度为n的通路的个数"><a href="#1-使用矩阵的幂求出长度为n的通路的个数" class="headerlink" title="1.使用矩阵的幂求出长度为n的通路的个数"></a>1.使用矩阵的幂求出长度为n的通路的个数</h3><p>​    <img src="algorithm/image-20210920111740660.png" alt="image-20210920111740660" style="zoom:50%;" /></p>
 <h3 id="2-可达性定理-gt-节点间距离的判定"><a href="#2-可达性定理-gt-节点间距离的判定" class="headerlink" title="2.可达性定理-&gt;节点间距离的判定"></a>2.可达性定理-&gt;节点间距离的判定</h3><p><strong>对于一个有n个节点的图，把邻接矩阵求和到n次幂，若某个节点所对应的的值为零，则称vi和vj不可达。由此又可以推出可达性矩阵的概念，但是此种方法只适合无权图，不能适用于有权图</strong></p>
 <h3 id="3-点割集与边割集"><a href="#3-点割集与边割集" class="headerlink" title="3.点割集与边割集"></a>3.点割集与边割集</h3><h4 id="1-割点与点割集"><a href="#1-割点与点割集" class="headerlink" title="1.割点与点割集"></a>1.割点与点割集</h4><p><strong>割点：是割去图中某一条边使得图的联通分支增加</strong></p>
 <p><strong>边割集：是图中一些边的集合，割去这些边使得图的联通分支增加，但是边割集的任意真子集不得为边割集</strong></p>
@@ -211,7 +211,7 @@
 </li>
 <li><p><strong>弱联通：存在一条经过所有节点至少一次的的通路</strong></p>
 </li>
-<li><p><strong>联通分支：<img src="algorithm.assets/image-20210920143953872.png" alt="image-20210920143953872" style="zoom:50%;" /></strong></p>
+<li><p><strong>联通分支：<img src="algorithm/image-20210920143953872.png" alt="image-20210920143953872" style="zoom:50%;" /></strong></p>
 </li>
 <li><p><strong>联通分支的判定：</strong> </p>
 </li>
@@ -227,23 +227,23 @@
 <li><strong>对于有向图，所有节点的度数均为偶数</strong></li>
 </ul>
 <p><strong>Fleury算法：依次选择相邻的边（不重复），尽量不选择桥</strong></p>
-<h3 id="6-哈密顿图"><a href="#6-哈密顿图" class="headerlink" title="6.哈密顿图"></a>6.哈密顿图</h3><img src="algorithm.assets/image-20210920175618183.png" alt="image-20210920175618183" style="zoom:50%;float:left" />
+<h3 id="6-哈密顿图"><a href="#6-哈密顿图" class="headerlink" title="6.哈密顿图"></a>6.哈密顿图</h3><img src="algorithm/image-20210920175618183.png" alt="image-20210920175618183" style="zoom:50%;float:left" />
 
-<img src="algorithm.assets/image-20210920191913393.png" alt="image-20210920191913393" style="zoom:50%;float:left" />
+<img src="algorithm/image-20210920191913393.png" alt="image-20210920191913393" style="zoom:50%;float:left" />
 
 <h3 id="7-偶图"><a href="#7-偶图" class="headerlink" title="7.偶图"></a>7.偶图</h3><p><strong>充分必要条件：所有的回路的长度均为偶数</strong></p>
 <p><strong>偶图的匹配问题</strong></p>
 <p><strong>使用相异性条件和t条件来来判断是否有匹配存在</strong></p>
-<img src="algorithm.assets/image-20210920193716555.png" alt="image-20210920193716555" style="zoom:67%;float:left" />
+<img src="algorithm/image-20210920193716555.png" alt="image-20210920193716555" style="zoom:67%;float:left" />
 
-<h3 id="8-欧拉公式"><a href="#8-欧拉公式" class="headerlink" title="8.欧拉公式"></a>8.欧拉公式</h3><img src="algorithm.assets/image-20210920200054987.png" alt="image-20210920200054987" style="zoom: 50%; float: left;" />
+<h3 id="8-欧拉公式"><a href="#8-欧拉公式" class="headerlink" title="8.欧拉公式"></a>8.欧拉公式</h3><img src="algorithm/image-20210920200054987.png" alt="image-20210920200054987" style="zoom: 50%; float: left;" />
 
 <h3 id="9-树"><a href="#9-树" class="headerlink" title="9.树"></a>9.树</h3><p><strong>树是没有回路的联通图</strong></p>
 <p><strong>k元树，有序树，满k元数的定义</strong></p>
 <p><strong>二叉树的先序、中序、后序、层次遍历</strong></p>
 <p><strong>使用哈夫曼树的决策问题</strong></p>
 <p>例题：</p>
-<img src="algorithm.assets/image-20210920153959224.png" alt="image-20210920153959224" style="zoom:50%;float:left;" />
+<img src="algorithm/image-20210920153959224.png" alt="image-20210920153959224" style="zoom:50%;float:left;" />
 
 <p>由度数等于边数的2倍，边数等于节点数-1，得出x=5.</p>
 <h2 id="二、数据结构图和树部分的内容"><a href="#二、数据结构图和树部分的内容" class="headerlink" title="二、数据结构图和树部分的内容"></a>二、数据结构图和树部分的内容</h2><p><strong>具体内容以代码的形式给出</strong></p>
