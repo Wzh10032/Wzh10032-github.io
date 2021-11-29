@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wzh10032.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="JNOJ的部署参考文档：Linux上git的配置 使用命令1.配置git12345678910cp &#x2F;home&#x2F;wzh&#x2F;Downloads&#x2F;git-2.34.0.tar.gz &#x2F;usr&#x2F;tar -zxvf git-2.34.0.tar.gzcd git-2.34.0make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git allmake prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git installvi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JNOJ的部署">
+<meta property="og:url" content="https://wzh10032.github.io/2021/11/29/JNOJ%E7%9A%84%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="The blog of wzh">
+<meta property="og:description" content="JNOJ的部署参考文档：Linux上git的配置 使用命令1.配置git12345678910cp &#x2F;home&#x2F;wzh&#x2F;Downloads&#x2F;git-2.34.0.tar.gz &#x2F;usr&#x2F;tar -zxvf git-2.34.0.tar.gzcd git-2.34.0make prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git allmake prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;git installvi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20211127193710031.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20211127193736191.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20211127184658585.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20211127184707729.png">
+<meta property="article:published_time" content="2021-11-29T13:07:43.000Z">
+<meta property="article:modified_time" content="2021-11-29T13:09:45.584Z">
+<meta property="article:author" content="wzh">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="LNMP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20211127193710031.png">
+
+
+<link rel="canonical" href="https://wzh10032.github.io/2021/11/29/JNOJ%E7%9A%84%E9%83%A8%E7%BD%B2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wzh10032.github.io/2021/11/29/JNOJ%E7%9A%84%E9%83%A8%E7%BD%B2/","path":"2021/11/29/JNOJ的部署/","title":"JNOJ的部署"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JNOJ的部署 | The blog of wzh</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">The blog of wzh</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JNOJ%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">JNOJ的部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">参考文档：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">使用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AEgit"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.配置git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AENginx"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.配置Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85gcc%EF%BC%8Cpcre%E5%8C%85%EF%BC%8Czlib%E5%8C%85"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">1.安装gcc，pcre包，zlib包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85nignx"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2.安装nignx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AEMySql"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.配置MySql</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85PHP"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">4.安装PHP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8lnmp%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">2.使用lnmp一键安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E5%B1%95%E7%A4%BA%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">结果展示：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wzh</p>
+  <div class="site-description" itemprop="description">耽误太多时间，事情可就做不完了！</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Wzh10032" title="https:&#x2F;&#x2F;github.com&#x2F;Wzh10032" rel="noopener" target="_blank">Github</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://space.bilibili.com/354902377" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;354902377" rel="noopener" target="_blank">B站</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.zhihu.com/people/diao-pi-dyuan-shi-ren" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;diao-pi-dyuan-shi-ren" rel="noopener" target="_blank">知乎</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wzh10032.github.io/2021/11/29/JNOJ%E7%9A%84%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wzh">
+      <meta itemprop="description" content="耽误太多时间，事情可就做不完了！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="The blog of wzh">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JNOJ的部署
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-11-29 21:07:43 / 修改时间：21:09:45" itemprop="dateCreated datePublished" datetime="2021-11-29T21:07:43+08:00">2021-11-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="JNOJ的部署"><a href="#JNOJ的部署" class="headerlink" title="JNOJ的部署"></a>JNOJ的部署</h1><h2 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wulixia/p/11016684.html">Linux上git的配置</a></p>
+<h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><h3 id="1-配置git"><a href="#1-配置git" class="headerlink" title="1.配置git"></a>1.配置git</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cp /home/wzh/Downloads/git-<span class="number">2.34</span><span class="number">.0</span>.tar.gz /usr/</span><br><span class="line">tar -zxvf git-<span class="number">2.34</span><span class="number">.0</span>.tar.gz</span><br><span class="line">cd git-<span class="number">2.34</span><span class="number">.0</span></span><br><span class="line">make prefix=/usr/local/git <span class="built_in">all</span></span><br><span class="line">make prefix=/usr/local/git install</span><br><span class="line">vi /etc/profile </span><br><span class="line"><span class="comment">#然后添加环境变量</span></span><br><span class="line"><span class="comment">#刷新环境变量</span></span><br><span class="line">source /etc/profile</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置Nginx"><a href="#2-配置Nginx" class="headerlink" title="2.配置Nginx"></a>2.配置Nginx</h3><p>参考博客<a target="_blank" rel="noopener" href="https://www.cnblogs.com/pxstar/p/14808244.html">Linux安装nginx</a></p>
+<h4 id="1-安装gcc，pcre包，zlib包"><a href="#1-安装gcc，pcre包，zlib包" class="headerlink" title="1.安装gcc，pcre包，zlib包"></a>1.安装gcc，pcre包，zlib包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y openssl openssl-devel</span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-安装nignx"><a href="#2-安装nignx" class="headerlink" title="2.安装nignx"></a>2.安装nignx</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在usr/local/目录下安装nignx</span></span><br><span class="line">mkdir /usr/local/nginx</span><br><span class="line">cd /usr/local/nginx</span><br><span class="line">wget https://nginx.org/download/nginx-<span class="number">1.19</span><span class="number">.9</span>.tar.gz</span><br><span class="line">tar -zxvf nginx-<span class="number">1.19</span><span class="number">.9</span>.tar.gz</span><br><span class="line">cd nginx-<span class="number">1.19</span><span class="number">.9</span></span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">whereis nginx</span><br><span class="line">./nginx</span><br><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置MySql"><a href="#3-配置MySql" class="headerlink" title="3.配置MySql"></a>3.配置MySql</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ivy-zheng/p/10987431.html">参考博客</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">https://dev.mysql.com/downloads/repo/yum/</span><br><span class="line">get https://repo.mysql.com//mysql80-community-release-el7-<span class="number">4.</span>noarch.rpm</span><br><span class="line">rpm -Uvh mysql80-community-release-el7-<span class="number">4.</span>noarch.rpm</span><br><span class="line">find /etc/yum.repos.d</span><br><span class="line">yum -y install mysql-community-server</span><br><span class="line">systemctl restart mysqld.service</span><br><span class="line">mysql</span><br><span class="line"><span class="comment">#查看登录密码</span></span><br><span class="line">grep <span class="string">&#x27;temporary password&#x27;</span> /var/log/mysqld.log</span><br><span class="line"><span class="comment">#密码：Z6F%6=a&gt;sm,q</span></span><br><span class="line">mysql -u root -p	<span class="comment">#登录并输入密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Wang123!&#x27;</span>;	<span class="comment">#修改密码为Wang123!</span></span><br><span class="line">exit	<span class="comment">#退出mysql</span></span><br><span class="line">firewall-cmd --zone=public --add-port=<span class="number">3306</span>/tcp --permanent</span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="4-安装PHP"><a href="#4-安装PHP" class="headerlink" title="4.安装PHP"></a>4.安装PHP</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc gcc-c++ make zlib zlib-devel pcre pcre-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers</span><br><span class="line"></span><br><span class="line">cd /usr/local</span><br><span class="line">wget https://www.php.net/distributions/php-7.1.31.tar.gz</span><br><span class="line">tar -zxvf php-7.1.31.tar.gz</span><br><span class="line">cd php-7.1.31</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">cp php.ini-production /usr/local/php/php.ini</span><br><span class="line">vi /usr/local/php/php.ini</span><br><span class="line">#在vim中 /display_errors ,修改Off为On</span><br><span class="line">/etc/init.d/php-fpm start</span><br><span class="line">ps -ef | grep php</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-使用lnmp一键安装"><a href="#2-使用lnmp一键安装" class="headerlink" title="2.使用lnmp一键安装"></a>2.使用lnmp一键安装</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211127193710031.png" alt="image-20211127193710031"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211127193736191.png" alt="image-20211127193736191"></p>
+<h2 id="结果展示："><a href="#结果展示：" class="headerlink" title="结果展示："></a>结果展示：</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211127184658585.png" alt="image-20211127184658585"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20211127184707729.png" alt="image-20211127184707729"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/LNMP/" rel="tag"># LNMP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/17/hello-hexo/" rel="prev" title="Hello Hexo">
+                  <i class="fa fa-chevron-left"></i> Hello Hexo
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wzh</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
